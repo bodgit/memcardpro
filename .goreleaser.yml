@@ -1,0 +1,28 @@
+---
+archives:
+  - format_overrides:
+      - goos: windows
+        format: zip
+before:
+  hooks:
+    - go mod tidy
+builds:
+  - binary: memcardpro
+    env:
+      - CGO_ENABLED=0
+    goarch:
+      - amd64
+    goos:
+      - darwin
+      - linux
+      - windows
+    ldflags:
+      - -s -w
+      - -X go.szostok.io/version.version={{.Version}}
+      - -X go.szostok.io/version.buildDate={{.Date}}
+checksum:
+  name_template: 'checksums.txt'
+release:
+  prerelease: auto
+changelog:
+  use: github-native
