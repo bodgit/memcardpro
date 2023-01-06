@@ -7,7 +7,8 @@ import (
 	"github.com/bodgit/gc"
 )
 
-func splitGCMemoryCard(base string, fr io.Reader, retainSize bool) error {
+//nolint:cyclop
+func splitGCMemoryCard(base string, fr io.Reader, useSize, useFlashID bool) error {
 	r, err := gc.NewReader(fr)
 	if err != nil {
 		return fmt.Errorf("unable to create GameCube reader: %w", err)
@@ -26,11 +27,22 @@ func splitGCMemoryCard(base string, fr io.Reader, retainSize bool) error {
 		defer f.Close()
 
 		cardSize := gc.MemoryCard2043
-		if retainSize {
+		if useSize {
 			cardSize = r.CardSize
 		}
 
-		w, err := gc.NewWriter(f, cardSize, r.Encoding)
+		options := []func(*gc.Writer) error{
+			gc.CardSize(cardSize),
+			gc.Encoding(r.Encoding),
+		}
+
+		if useFlashID {
+			options = append(options, gc.FlashID(r.FlashID))
+		} else {
+			options = append(options, gc.FormatTime(0))
+		}
+
+		w, err := gc.NewWriter(f, options...)
 		if err != nil {
 			return fmt.Errorf("unable to create GameCube writer: %w", err)
 		}

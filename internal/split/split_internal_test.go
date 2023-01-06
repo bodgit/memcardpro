@@ -92,13 +92,13 @@ func TestMemoryCards(t *testing.T) { //nolint:tparallel
 				filepath.Join("..", "..", "testdata", "gc", "0251b_2020_04Apr_01_05-02-47.raw"),
 			},
 			output: map[string][]string{
-				"03616fb6bbfa3bfc67772f66468e8cd1ca163ccee2c4a6e9e485dac7157cfbc8": {"G2MP", "G2MP-1.mcd"},
-				"c8c1b68486d24137b68cf82fe1dd26d360e804f3d0bba6b5e35fe0a3f17c37f6": {"G4SP", "G4SP-1.mcd"},
-				"27b60e4645caf150bea62f443b60847d13fc17c0bfbc89228ad3ad0d7f58eb70": {"GFZP", "GFZP-1.mcd"},
-				"8f12e0c73cc4b8c01864601c840faebc442ca7a2693167b3b44ba1da4b97fba2": {"GM8P", "GM8P-1.mcd"},
-				"1eb903c29860e3a9668982832619ee121067fcd4a7bc28838e4f2220f712717c": {"GPTP", "GPTP-1.mcd"},
-				"77c8d7eae214c1b3b9666a6c9188bcf5afd4091fa08573130399c2aa1e3384d9": {"GSAP", "GSAP-1.mcd"},
-				"ed55131b2e45ed2abbc8d0e44249d4e9941704aa401324732508d12d0334d9d2": {"GZLP", "GZLP-1.mcd"},
+				"059b275e8c02e34f4242729a2f3189af88169f6f03a0d017f525b5de0dbc20c0": {"G2MP", "G2MP-1.mcd"},
+				"41460a663e223f2f8982f4b6f8c42bc66c2e51d87a642eaf5fa212417aaf7d41": {"G4SP", "G4SP-1.mcd"},
+				"87d239162f3b723681cdace46b6b74ea275ad9616d330fc82f898937598b1a4f": {"GFZP", "GFZP-1.mcd"},
+				"e673c15b1fc7b7fd359288d05807d75515846aad8e802da44b40f8453d0846d9": {"GM8P", "GM8P-1.mcd"},
+				"ae3cfb5d0d8c95a98f1f1cf134a62ce0572ba4f638e481a44d8db6ad79a9962e": {"GPTP", "GPTP-1.mcd"},
+				"ff79db6214bedd51cf13d343cd7c0e36d66079f7ebfd69898a4cbea8802fa3b7": {"GSAP", "GSAP-1.mcd"},
+				"4d0e6ac170b4498cc6e9b433b6823da201f04b8519cb3cb748a799f2c6fae4c5": {"GZLP", "GZLP-1.mcd"},
 			},
 		},
 	}
@@ -116,7 +116,7 @@ func TestMemoryCards(t *testing.T) { //nolint:tparallel
 				t.Fatal(err)
 			}
 
-			if err := MemoryCards(dir, table.input, true); err != nil {
+			if err := MemoryCards(dir, table.input, true, false); err != nil {
 				t.Fatal(err)
 			}
 

@@ -23,7 +23,7 @@ var (
 	errUnknownMemoryCard = errors.New("unknown memory card")
 )
 
-func MemoryCards(dir string, files []string, retainSize bool) error {
+func MemoryCards(dir string, files []string, useSize, useFlashID bool) error {
 	base, err := filepath.Abs(dir)
 	if err != nil {
 		return fmt.Errorf("unable to create absolute path: %w", err)
@@ -54,7 +54,7 @@ func MemoryCards(dir string, files []string, retainSize bool) error {
 			return fmt.Errorf("unable to stat: %w", err)
 		}
 
-		if err := splitMemoryCard(base, file, fi.Size(), retainSize); err != nil {
+		if err := splitMemoryCard(base, file, fi.Size(), useSize, useFlashID); err != nil {
 			return err
 		}
 	}
@@ -67,7 +67,7 @@ type fileReader interface {
 	io.ReaderAt
 }
 
-func splitMemoryCard(base string, file fileReader, size int64, retainSize bool) error {
+func splitMemoryCard(base string, file fileReader, size int64, useSize, useFlashID bool) error {
 	ok, err := psx.DetectMemoryCard(file, size)
 	if err != nil {
 		return fmt.Errorf("error detecting PlayStation memory card: %w", err)
@@ -83,7 +83,7 @@ func splitMemoryCard(base string, file fileReader, size int64, retainSize bool) 
 	}
 
 	if ok {
-		return splitGCMemoryCard(base, file, retainSize)
+		return splitGCMemoryCard(base, file, useSize, useFlashID)
 	}
 
 	return errUnknownMemoryCard
