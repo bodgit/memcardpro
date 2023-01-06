@@ -26,7 +26,7 @@ func splitGCMemoryCard(base string, fr io.Reader, useSize, useFlashID bool) erro
 		}
 		defer f.Close()
 
-		cardSize := gc.MemoryCard2043
+		cardSize := gc.MemoryCard251
 		if useSize {
 			cardSize = r.CardSize
 		}
