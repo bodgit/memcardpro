@@ -30,7 +30,7 @@ func TestMemoryCards(t *testing.T) { //nolint:tparallel
 		{
 			name: "gc empty",
 			input: []string{
-				filepath.Join("..", "..", "testdata", "gc", "blank.mcd"),
+				filepath.Join("..", "..", "testdata", "gc", "blank.raw"),
 			},
 		},
 		{
@@ -92,13 +92,13 @@ func TestMemoryCards(t *testing.T) { //nolint:tparallel
 				filepath.Join("..", "..", "testdata", "gc", "0251b_2020_04Apr_01_05-02-47.raw"),
 			},
 			output: map[string][]string{
-				"059b275e8c02e34f4242729a2f3189af88169f6f03a0d017f525b5de0dbc20c0": {"G2MP", "G2MP-1.mcd"},
-				"41460a663e223f2f8982f4b6f8c42bc66c2e51d87a642eaf5fa212417aaf7d41": {"G4SP", "G4SP-1.mcd"},
-				"87d239162f3b723681cdace46b6b74ea275ad9616d330fc82f898937598b1a4f": {"GFZP", "GFZP-1.mcd"},
-				"e673c15b1fc7b7fd359288d05807d75515846aad8e802da44b40f8453d0846d9": {"GM8P", "GM8P-1.mcd"},
-				"ae3cfb5d0d8c95a98f1f1cf134a62ce0572ba4f638e481a44d8db6ad79a9962e": {"GPTP", "GPTP-1.mcd"},
-				"ff79db6214bedd51cf13d343cd7c0e36d66079f7ebfd69898a4cbea8802fa3b7": {"GSAP", "GSAP-1.mcd"},
-				"4d0e6ac170b4498cc6e9b433b6823da201f04b8519cb3cb748a799f2c6fae4c5": {"GZLP", "GZLP-1.mcd"},
+				"059b275e8c02e34f4242729a2f3189af88169f6f03a0d017f525b5de0dbc20c0": {"G2MP01", "G2MP01-1.raw"},
+				"41460a663e223f2f8982f4b6f8c42bc66c2e51d87a642eaf5fa212417aaf7d41": {"G4SP01", "G4SP01-1.raw"},
+				"87d239162f3b723681cdace46b6b74ea275ad9616d330fc82f898937598b1a4f": {"GFZP8P", "GFZP8P-1.raw"},
+				"e673c15b1fc7b7fd359288d05807d75515846aad8e802da44b40f8453d0846d9": {"GM8P01", "GM8P01-1.raw"},
+				"ae3cfb5d0d8c95a98f1f1cf134a62ce0572ba4f638e481a44d8db6ad79a9962e": {"GPTP41", "GPTP41-1.raw"},
+				"ff79db6214bedd51cf13d343cd7c0e36d66079f7ebfd69898a4cbea8802fa3b7": {"GSAP01", "GSAP01-1.raw"},
+				"4d0e6ac170b4498cc6e9b433b6823da201f04b8519cb3cb748a799f2c6fae4c5": {"GZLP01", "GZLP01-1.raw"},
 			},
 		},
 	}
