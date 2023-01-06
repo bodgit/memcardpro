@@ -7,6 +7,12 @@ import (
 	"github.com/bodgit/gc"
 )
 
+const extensionGC = "raw"
+
+func sanitizeGCCode(gameCode, makerCode string) string {
+	return gameCode + makerCode
+}
+
 //nolint:cyclop
 func splitGCMemoryCard(base string, fr io.Reader, useSize, useFlashID bool) error {
 	r, err := gc.NewReader(fr)
@@ -16,11 +22,11 @@ func splitGCMemoryCard(base string, fr io.Reader, useSize, useFlashID bool) erro
 
 	codes := make(map[string]struct{})
 	for _, file := range r.File {
-		codes[file.GameCode] = struct{}{}
+		codes[sanitizeGCCode(file.GameCode, file.MakerCode)] = struct{}{}
 	}
 
 	for code := range codes {
-		f, err := newMemoryCardFile(base, code)
+		f, err := newMemoryCardFile(base, code, extensionGC)
 		if err != nil {
 			return err
 		}
@@ -49,7 +55,7 @@ func splitGCMemoryCard(base string, fr io.Reader, useSize, useFlashID bool) erro
 		defer w.Close()
 
 		for _, file := range r.File {
-			if file.GameCode != code {
+			if sanitizeGCCode(file.GameCode, file.MakerCode) != code {
 				continue
 			}
 

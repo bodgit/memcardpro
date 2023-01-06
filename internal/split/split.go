@@ -89,7 +89,7 @@ func splitMemoryCard(base string, file fileReader, size int64, useSize, useFlash
 	return errUnknownMemoryCard
 }
 
-func newMemoryCardFile(base, dir string) (io.WriteCloser, error) {
+func newMemoryCardFile(base, dir, extension string) (io.WriteCloser, error) {
 	directory := filepath.Join(base, dir)
 dir:
 	fi, err := fs.Stat(directory)
@@ -116,7 +116,7 @@ dir:
 	)
 
 	for i = 1; i <= maxChannels; i++ {
-		target = filepath.Join(directory, fmt.Sprintf("%s-%d.mcd", dir, i))
+		target = filepath.Join(directory, fmt.Sprintf("%s-%d.%s", dir, i, extension))
 		if _, err = fs.Stat(target); err != nil {
 			if os.IsNotExist(err) {
 				break

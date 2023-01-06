@@ -7,7 +7,9 @@ import (
 	"github.com/bodgit/psx"
 )
 
-func sanitizeProductCode(code string) string {
+const extensionPSX = "mcd"
+
+func sanitizePSXCode(code string) string {
 	if code[4] == 'P' {
 		return code[:4] + "-" + code[5:]
 	}
@@ -23,11 +25,11 @@ func splitPSXMemoryCard(base string, fr io.Reader) error {
 
 	codes := make(map[string]struct{})
 	for _, file := range r.File {
-		codes[sanitizeProductCode(file.ProductCode)] = struct{}{}
+		codes[sanitizePSXCode(file.ProductCode)] = struct{}{}
 	}
 
 	for code := range codes {
-		f, err := newMemoryCardFile(base, code)
+		f, err := newMemoryCardFile(base, code, extensionPSX)
 		if err != nil {
 			return err
 		}
@@ -40,7 +42,7 @@ func splitPSXMemoryCard(base string, fr io.Reader) error {
 		defer w.Close()
 
 		for _, file := range r.File {
-			if sanitizeProductCode(file.ProductCode) != code {
+			if sanitizePSXCode(file.ProductCode) != code {
 				continue
 			}
 
