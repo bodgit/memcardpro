@@ -9,8 +9,22 @@ import (
 
 const extensionGC = "raw"
 
+// Some games report a different game + publisher code on the memory card
+// versus the game disc.
+var mcCodeToDiscCode = map[string]string{
+	"GFZE8P": "GFZE01", // F-Zero GX
+	"GFZJ8P": "GFZJ01",
+	"GFZP8P": "GFZP01",
+}
+
 func sanitizeGCCode(gameCode, makerCode string) string {
-	return gameCode + makerCode
+	code := gameCode + makerCode
+
+	if newCode, ok := mcCodeToDiscCode[code]; ok {
+		return newCode
+	}
+
+	return code
 }
 
 //nolint:cyclop
