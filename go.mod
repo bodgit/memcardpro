@@ -3,7 +3,7 @@ module github.com/bodgit/memcardpro
 go 1.18
 
 require (
-	github.com/bodgit/gc v0.0.6
+	github.com/bodgit/gc v0.0.7
 	github.com/bodgit/psx v0.0.5
 	github.com/spf13/afero v1.9.3
 	github.com/spf13/cobra v1.6.1

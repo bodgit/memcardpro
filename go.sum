@@ -48,8 +48,8 @@ github.com/araddon/dateparse v0.0.0-20210429162001-6b43995a97de h1:FxWPpzIjnTlhP
 github.com/araddon/dateparse v0.0.0-20210429162001-6b43995a97de/go.mod h1:DCaWoUhZrYW9p1lxo/cm8EmUOOzAPSEZNGF2DK1dJgw=
 github.com/aymanbagabas/go-osc52 v1.0.3 h1:DTwqENW7X9arYimJrPeGZcV0ln14sGMt3pHZspWD+Mg=
 github.com/aymanbagabas/go-osc52 v1.0.3/go.mod h1:zT8H+Rk4VSabYN90pWyugflM3ZhpTZNC7cASDfUCdT4=
-github.com/bodgit/gc v0.0.6 h1:0SHF6tM52HL/pTjAUvBtB+eyUuhnTAiqUklGjiAnN7A=
-github.com/bodgit/gc v0.0.6/go.mod h1:/VQeXqP5Ikub78QGyBpBnd6CTuDmwx7tQXWViopGagw=
+github.com/bodgit/gc v0.0.7 h1:RuTi0uKCPIsCSFIXO2baeQ+KQS5aQVwtpg14BquJOSE=
+github.com/bodgit/gc v0.0.7/go.mod h1:/VQeXqP5Ikub78QGyBpBnd6CTuDmwx7tQXWViopGagw=
 github.com/bodgit/plumbing v1.3.0 h1:pf9Itz1JOQgn7vEOE7v7nlEfBykYqvUYioC61TwWCFU=
 github.com/bodgit/plumbing v1.3.0/go.mod h1:JOTb4XiRu5xfnmdnDJo6GmSbSbtSyufrsyZFByMtKEs=
 github.com/bodgit/psx v0.0.5 h1:UBB9ofZrwRKnEH2xIwZsyuxQ/y73V/hrDDL/96cknrg=
