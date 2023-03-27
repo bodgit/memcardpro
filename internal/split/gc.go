@@ -17,18 +17,22 @@ var mcCodeToDiscCode = map[string]string{
 	"GFZP8P": "GFZP01",
 }
 
-func sanitizeGCCode(gameCode, makerCode string) string {
+func sanitizeGCCode(gameCode, makerCode string, revisionHack bool) string {
 	code := gameCode + makerCode
 
 	if newCode, ok := mcCodeToDiscCode[code]; ok {
-		return newCode
+		code = newCode
+	}
+
+	if revisionHack {
+		return code + "00"
 	}
 
 	return code
 }
 
 //nolint:cyclop
-func splitGCMemoryCard(base string, fr io.Reader, useSize, useFlashID bool) error {
+func splitGCMemoryCard(base string, fr io.Reader, useSize, useFlashID, revisionHack bool) error {
 	r, err := gc.NewReader(fr)
 	if err != nil {
 		return fmt.Errorf("unable to create GameCube reader: %w", err)
@@ -36,7 +40,7 @@ func splitGCMemoryCard(base string, fr io.Reader, useSize, useFlashID bool) erro
 
 	codes := make(map[string]struct{})
 	for _, file := range r.File {
-		codes[sanitizeGCCode(file.GameCode, file.MakerCode)] = struct{}{}
+		codes[sanitizeGCCode(file.GameCode, file.MakerCode, revisionHack)] = struct{}{}
 	}
 
 	for code := range codes {
@@ -69,7 +73,7 @@ func splitGCMemoryCard(base string, fr io.Reader, useSize, useFlashID bool) erro
 		defer w.Close()
 
 		for _, file := range r.File {
-			if sanitizeGCCode(file.GameCode, file.MakerCode) != code {
+			if sanitizeGCCode(file.GameCode, file.MakerCode, revisionHack) != code {
 				continue
 			}
 

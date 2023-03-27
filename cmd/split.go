@@ -8,6 +8,8 @@ import (
 var (
 	useFlashID bool
 	useSize    bool
+
+	revisionHack bool
 )
 
 func init() {
@@ -18,12 +20,13 @@ func init() {
 		Long:                  ``,
 		Args:                  cobra.MinimumNArgs(2), //nolint:gomnd
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return split.MemoryCards(args[0], args[1:], useSize, useFlashID) //nolint:wrapcheck
+			return split.MemoryCards(args[0], args[1:], useSize, useFlashID, revisionHack) //nolint:wrapcheck
 		},
 	}
 
 	splitCmd.Flags().BoolVar(&useFlashID, "use-flash-id", false, "use the source memory card flash ID")
 	splitCmd.Flags().BoolVar(&useSize, "use-size", false, "use the source memory card size")
+	splitCmd.Flags().BoolVar(&revisionHack, "revision-bytes", false, "force adding revision bytes to filenames")
 
 	rootCmd.AddCommand(splitCmd)
 }
