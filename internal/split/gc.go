@@ -11,7 +11,7 @@ const extensionGC = "raw"
 
 // Some games report a different game + publisher code on the memory card
 // versus the game disc.
-var mcCodeToDiscCode = map[string]string{
+var mcCodeToDiscCode = map[string]string{ //nolint:gochecknoglobals
 	"GFZE8P": "GFZE01", // F-Zero GX
 	"GFZJ8P": "GFZJ01",
 	"GFZP8P": "GFZP01",

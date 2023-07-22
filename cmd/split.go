@@ -5,6 +5,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
+//nolint:gochecknoglobals
 var (
 	useFlashID bool
 	useSize    bool
@@ -12,6 +13,7 @@ var (
 	revisionHack bool
 )
 
+//nolint:gochecknoinits
 func init() {
 	splitCmd := &cobra.Command{
 		Use:                   "split DIRECTORY FILE...",

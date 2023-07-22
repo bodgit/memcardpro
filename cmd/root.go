@@ -6,6 +6,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
+//nolint:gochecknoglobals
 var rootCmd = &cobra.Command{
 	Use:   "memcardpro",
 	Short: "",

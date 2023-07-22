@@ -15,6 +15,7 @@ import (
 
 const maxChannels = 8
 
+//nolint:gochecknoglobals
 var fs = afero.NewOsFs()
 
 var (
