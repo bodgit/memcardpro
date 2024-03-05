@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/bodgit/gc v0.0.7
-	github.com/bodgit/psx v0.0.6
+	github.com/bodgit/psx v0.0.7
 	github.com/spf13/afero v1.11.0
 	github.com/spf13/cobra v1.8.0
 	github.com/stretchr/testify v1.9.0
