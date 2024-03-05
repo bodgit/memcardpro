@@ -23,6 +23,6 @@ builds:
 checksum:
   name_template: 'checksums.txt'
 release:
-  prerelease: auto
+  disable: true
 changelog:
-  use: github-native
+  disable: true

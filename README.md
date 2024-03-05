@@ -1,10 +1,10 @@
 [![GitHub release](https://img.shields.io/github/v/release/bodgit/memcardpro)](https://github.com/bodgit/memcardpro/releases)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/bodgit/memcardpro/main.yml?branch=main)](https://github.com/bodgit/memcardpro/actions?query=workflow%3Abuild)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/bodgit/memcardpro/build.yml?branch=main)](https://github.com/bodgit/memcardpro/actions?query=workflow%3Abuild)
 [![Coverage Status](https://coveralls.io/repos/github/bodgit/memcardpro/badge.svg?branch=main)](https://coveralls.io/github/bodgit/memcardpro?branch=main)
 [![Go Report Card](https://goreportcard.com/badge/github.com/bodgit/memcardpro)](https://goreportcard.com/report/github.com/bodgit/memcardpro)
 [![GoDoc](https://godoc.org/github.com/bodgit/memcardpro?status.svg)](https://godoc.org/github.com/bodgit/memcardpro)
-![Go version](https://img.shields.io/badge/Go-1.20-brightgreen.svg)
-![Go version](https://img.shields.io/badge/Go-1.19-brightgreen.svg)
+![Go version](https://img.shields.io/badge/Go-1.22-brightgreen.svg)
+![Go version](https://img.shields.io/badge/Go-1.21-brightgreen.svg)
 
 memcardpro
 ==========
