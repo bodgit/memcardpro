@@ -22,7 +22,5 @@ builds:
       - -X go.szostok.io/version.buildDate={{.Date}}
 checksum:
   name_template: 'checksums.txt'
-release:
-  disable: true
 changelog:
   disable: true
