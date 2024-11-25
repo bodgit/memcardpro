@@ -7,7 +7,7 @@ require (
 	github.com/bodgit/psx v0.0.7
 	github.com/spf13/afero v1.11.0
 	github.com/spf13/cobra v1.8.0
-	github.com/stretchr/testify v1.9.0
+	github.com/stretchr/testify v1.10.0
 	go.szostok.io/version v1.2.0
 )
 
